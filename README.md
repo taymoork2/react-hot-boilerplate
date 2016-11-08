@@ -1,32 +1,19 @@
->## A Big Update Is Coming
-
->React Hot Loader 3 is [on the horizon](https://github.com/gaearon/react-hot-loader/pull/240), and you can try it today ([boilerplate branch](https://github.com/gaearon/react-hot-boilerplate/pull/61), [upgrade example](https://github.com/gaearon/redux-devtools/commit/64f58b7010a1b2a71ad16716eb37ac1031f93915)). It fixes some [long-standing issues](https://twitter.com/dan_abramov/status/722040946075045888) with both React Hot Loader and React Transform, and is intended as a replacement for both. The docs are not there yet, but they will be added before the final release. For now, [this commit](https://github.com/gaearon/redux-devtools/commit/64f58b7010a1b2a71ad16716eb37ac1031f93915) is a good reference.
-
-
-React Hot Boilerplate
+react-hot-boilerplate
 =====================
 
-The minimal dev environment to enable live-editing React components.
+#### This fork is a semi-opiniated React setup with a option to build for Production (React + HMR(3) + Webpack + Babel)
 
-### ⚠️⚠️⚠️ This Is Experimental and Incomplete! ⚠️⚠️⚠️
-
-This is **not a good starting point for people learning React.**  
-It’s experimental and completely lacks any production features.
-
-**Do not use this as an actual project boilerplate!**  
-If you’re just getting started with React, **use [Create React App](https://github.com/facebookincubator/create-react-app) instead.**
+This fork combines the minimalism of Gaearon's react-hot-boilerplate/next and the many features of Facebook Incubator's Create-React-App setup into a simple react starter project
 
 ### Usage
 
 ```
-git clone https://github.com/gaearon/react-hot-boilerplate.git
-cd react-hot-boilerplate/
 npm install
 npm start
 open http://localhost:3000
 ```
 
-Now edit `src/App.js`.  
+Now edit `src/Components/App/App.js`.
 Your changes will appear without reloading the browser like in [this video](http://vimeo.com/100010922).
 
 ### Linting
@@ -37,18 +24,25 @@ This boilerplate project includes React-friendly ESLint configuration.
 npm run lint
 ```
 
+### Build for Production
+
+This boilerplate project also includes the ability to export to a production build
+- This functionality was taken from React-Scripts
+
+```
+npm run build
+```
+
 ### Using `0.0.0.0` as Host
 
 You may want to change the host in `server.js` and `webpack.config.js` from `localhost` to `0.0.0.0` to allow access from same WiFi network. This is not enabled by default because it is reported to cause problems on Windows. This may also be useful if you're using a VM.
-
-### Missing Features
-
-This boilerplate is purposefully simple to show the minimal configuration for React Hot Loader. For a real project, you'll want to add a separate config for production with hot reloading disabled and minification enabled. You'll also want to add a router, styles and maybe combine dev server with an existing server. This is out of scope of this boilerplate, but you may want to look into [other starter kits](https://github.com/gaearon/react-hot-loader/blob/master/docs/README.md#starter-kits).
 
 ### Dependencies
 
 * React
 * Webpack
+* Browser-Sync
+* Files from Create-React-App/React-Scripts
 * [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
 * [babel-loader](https://github.com/babel/babel-loader)
 * [react-hot-loader](https://github.com/gaearon/react-hot-loader)
@@ -59,4 +53,17 @@ This boilerplate is purposefully simple to show the minimal configuration for Re
 * [react-hot-loader on Github](https://github.com/gaearon/react-hot-loader)
 * [Integrating JSX live reload into your workflow](http://gaearon.github.io/react-hot-loader/getstarted/)
 * [Troubleshooting guide](https://github.com/gaearon/react-hot-loader/blob/master/docs/Troubleshooting.md)
-* Ping [@dan_abramov](https://twitter.com/dan_abramov) on Twitter or #reactjs (`chat.freenode.net/reactjs`) on IRC
+* Ping dan_abramov on Twitter or #reactjs IRC
+
+#### What was combined
+
+- A majority of React-Hot-Boilerplate/next is still here
+- src folder contents were replaced with Create-React-App's src folder and then organized
+- Webpack is a combintation of both React-Hot-Boilerplate and Create-React-App
+- Thanks to Create-React-App, css changes are also done over Hot-Module
+- App.js file was twekaed to be "hot"
+- config contents were taken from React-Scripts and tweaked for new folder structure
+- Production build capabilities was taken from React-Scripts
+- public folder was taken from React-Scripts
+- Server.js was modified to use browser-sync
+
