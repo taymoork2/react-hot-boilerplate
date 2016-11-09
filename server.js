@@ -1,17 +1,9 @@
 var express = require('express');
 var path = require('path');
-var webpack = require('webpack');
-var browserSync = require('browser-sync').create();
-
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var webpackConfig = require('./webpack.development.config');
-
 var app = express();
-var webpackBundler = webpack(webpackConfig);
 
 app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 app.listen(3000, function (err) {
@@ -21,9 +13,16 @@ app.listen(3000, function (err) {
 
   console.log('Listening at http://localhost:3000/');
 
-  browserSync.init(null, {
+  var bs = require('browser-sync').create();
+  var webpack = require('webpack');
+  var webpackDevMiddleware = require('webpack-dev-middleware');
+  var webpackHotMiddleware = require('webpack-hot-middleware');
+  var webpackConfig = require('./webpack.development.config');
+  var webpackBundler = webpack(webpackConfig);
+
+  bs.init(null, {
     server: {
-      baseDir: 'public',
+      baseDir: 'dist',
       middleware: [
         webpackDevMiddleware(webpackBundler, {
           publicPath: webpackConfig.output.publicPath,
@@ -41,9 +40,11 @@ app.listen(3000, function (err) {
       ],
     },
     files: [
-      'dist/index.html'
+      'public/index.html',
+      'src/**/*.css'
     ],
     reloadOnRestart: true,
+    injectChanges: true,
     notify: true,
     tunnel: true, // LocalTunnel url
     logLevel: 'debug',
