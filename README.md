@@ -24,7 +24,7 @@ This boilerplate project includes React-friendly ESLint configuration.
 npm run lint
 ```
 
-### Build for Production
+### Build to Production
 
 This boilerplate project also includes the ability to export to a production build
 - This functionality was taken from React-Scripts
@@ -43,6 +43,7 @@ You may want to change the host in `server.js` and `webpack.config.js` from `loc
 * Webpack
 * Browser-Sync
 * Files from Create-React-App/React-Scripts
+* npm-install-webpack-plugin for automatic installation of missing npm packages
 * [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
 * [babel-loader](https://github.com/babel/babel-loader)
 * [react-hot-loader](https://github.com/gaearon/react-hot-loader)

@@ -14,8 +14,9 @@ var fs = require('fs');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+var NpmInstallPlugin = requrie('npm-install-webpack-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 var paths = require('./config/paths');
 var getClientEnvironment = require('./config/env');
@@ -45,6 +46,7 @@ module.exports = {
       inject: true,
       template: paths.appHtml,
     }),
+    new NpmInstallPlugin({ dev: true }),
     new webpack.DefinePlugin(env),
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin(),
