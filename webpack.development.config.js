@@ -14,12 +14,12 @@ var fs = require('fs');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var NpmInstallPlugin = requrie('npm-install-webpack-plugin');
+var NpmInstallPlugin = require('npm-install-webpack-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-var paths = require('./config/paths');
-var getClientEnvironment = require('./config/env');
+var paths = require('./bin/paths');
+var getClientEnvironment = require('./bin/env');
 var publicPath = '/';
 var publicUrl = '';
 var env = getClientEnvironment(publicUrl);
@@ -29,13 +29,13 @@ module.exports = {
   entry: [
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
-    require.resolve('./config/polyfills'),
+    require.resolve('./bin/polyfills'),
     paths.appIndexJs
   ],
   output: {
     path: paths.appBuild,
     pathinfo: true,
-    filename: 'static/js/bundle.js',
+    filename: 'assets/js/bundle.js',
     publicPath: publicPath
   },
   plugins: [
@@ -91,7 +91,7 @@ module.exports = {
         test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
         loader: 'file',
         query: {
-          name: 'static/media/[name].[hash:8].[ext]'
+          name: 'assets/media/[name].[hash:8].[ext]'
         }
       },
       {
@@ -99,7 +99,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]'
+          name: 'assets/media/[name].[hash:8].[ext]'
         }
       }
     ]

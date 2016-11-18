@@ -17,12 +17,12 @@ var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var NpmInstallPlugin = requrie('npm-install-webpack-plugin');
+// var NpmInstallPlugin = require('npm-install-webpack-plugin'); // Unneccesary for Production
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-var paths = require('./config/paths');
-var getClientEnvironment = require('./config/env');
+var paths = require('./bin/paths');
+var getClientEnvironment = require('./bin/env');
 var publicPath = '/';
 var publicUrl = '';
 var env = getClientEnvironment(publicUrl);
@@ -52,13 +52,13 @@ module.exports = {
   bail: true,
   devtool: 'source-map',
   entry: [
-    require.resolve('./config/polyfills'),
+    require.resolve('./bin/polyfills'),
     paths.appIndexJs
   ],
   output: {
     path: paths.appBuild,
-    filename: 'static/js/[name].[chunkhash:8].js',
-    chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
+    filename: 'assets/js/[name].[chunkhash:8].js',
+    chunkFilename: 'assets/js/[name].[chunkhash:8].chunk.js',
     publicPath: publicPath
   },
   plugins: [
@@ -81,7 +81,7 @@ module.exports = {
         minifyURLs: true
       }
     }),
-    new NpmInstallPlugin();
+    // new NpmInstallPlugin(), // Unncessary for Production
     new webpack.DefinePlugin(env),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
@@ -98,7 +98,7 @@ module.exports = {
         screw_ie8: true
       }
     }),
-    new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
+    new ExtractTextPlugin('assets/css/[name].[contenthash:8].css'),
     new ManifestPlugin({
       fileName: 'asset-manifest.json'
     })
@@ -142,7 +142,7 @@ module.exports = {
         test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
         loader: 'file',
         query: {
-          name: 'static/media/[name].[hash:8].[ext]'
+          name: 'assets/media/[name].[hash:8].[ext]'
         }
       },
       {
@@ -150,7 +150,7 @@ module.exports = {
         loader: 'url',
         query: {
           limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]'
+          name: 'assets/media/[name].[hash:8].[ext]'
         }
       }
     ]

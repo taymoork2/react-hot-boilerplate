@@ -35,9 +35,9 @@ var nodePaths = (process.env.NODE_PATH || '')
   .filter(Boolean)
   .map(resolveApp);
 
-// config after eject: we're in ./config/
+// config after eject: we're in ./bin/
 module.exports = {
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp('production_build'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.js'),
@@ -54,9 +54,9 @@ function resolveOwn(relativePath) {
   return path.resolve(__dirname, relativePath);
 }
 
-// config before eject: we're in ./node_modules/react-scripts/config/
+// config before eject: we're in ./node_modules/react-scripts/bin/
 module.exports = {
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp('production_build'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.js'),
