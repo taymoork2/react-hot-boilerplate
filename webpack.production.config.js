@@ -16,6 +16,7 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
+var BowerWebpackPlugin = require("bower-webpack-plugin");
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 // var NpmInstallPlugin = require('npm-install-webpack-plugin'); // Unneccesary for Production
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
@@ -99,6 +100,7 @@ module.exports = {
       }
     }),
     new ExtractTextPlugin('assets/css/[name].[contenthash:8].css'),
+    new BowerWebpackPlugin(),
     new ManifestPlugin({
       fileName: 'asset-manifest.json'
     })

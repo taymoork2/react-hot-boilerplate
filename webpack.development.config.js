@@ -14,6 +14,7 @@ var fs = require('fs');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var BowerWebpackPlugin = require("bower-webpack-plugin");
 var NpmInstallPlugin = require('npm-install-webpack-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -46,10 +47,13 @@ module.exports = {
       inject: true,
       template: paths.appHtml,
     }),
-    new NpmInstallPlugin({ dev: true }),
+    new NpmInstallPlugin({
+      dev: true
+    }),
     new webpack.DefinePlugin(env),
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin(),
+    new BowerWebpackPlugin(),
     new WatchMissingNodeModulesPlugin(paths.appNodeModules)
   ],
   resolve: {
