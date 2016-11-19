@@ -1,7 +1,7 @@
-var pe = require('pretty-error').start();
 var express = require('express');
 var path = require('path');
 var app = express();
+var pe = require('pretty-error').start();
 var bs = require('browser-sync').create();
 var webpack = require('webpack');
 var webpackDevMiddleware = require('webpack-dev-middleware');
@@ -9,6 +9,9 @@ var webpackHotMiddleware = require('webpack-hot-middleware');
 var webpackConfig = require('./webpack.development.config');
 var webpackBundler = webpack(webpackConfig);
 
+app.use(express.static(__dirname + '/public'));
+app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+app.use(webpackHotMiddleware(webpackBundler));
 app.use(webpackDevMiddleware(webpackBundler, {
   publicPath: webpackConfig.output.publicPath,
   noInfo: false,
@@ -21,8 +24,6 @@ app.use(webpackDevMiddleware(webpackBundler, {
   },
   historyApiFallback: true
 }));
-
-app.use(webpackHotMiddleware(webpackBundler));
 
 app.get('*', function (req, res) {
   res.sendFile(path.join(__dirname, 'public/index.html'));
@@ -40,8 +41,6 @@ app.listen(3000, function (err) {
     injectChanges: true,
     notify: true,
     tunnel: true, // LocalTunnel url, change 'true' to whatever subdomain you like (if subdomain is available)
-    logLevel: 'debug',
-    logSnippet: 'false',
     open: false, // Change to 'local' to open on start
     xip: true
   });

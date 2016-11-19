@@ -1,0 +1,10 @@
+{
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "watch": [
+    "nodemon.json",
+    // "public/index.html",
+    "server.js"
+  ]
+}

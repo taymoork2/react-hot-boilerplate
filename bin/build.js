@@ -130,7 +130,7 @@ function printErrors(summary, errors) {
 
 // Create the production build and print the deployment instructions.
 function build(previousSizeMap) {
-  console.log('Creating an optimized production build...');
+  console.log('Creating an optimized build for production...');
   webpack(config).run((err, stats) => {
     if (err) {
       printErrors('Failed to compile.', [err]);
@@ -168,7 +168,7 @@ function build(previousSizeMap) {
       console.log('    ' + chalk.dim('// ...'));
       console.log('    ' + chalk.yellow('"scripts"') + ': {');
       console.log('      ' + chalk.dim('// ...'));
-      console.log('      ' + chalk.yellow('"deploy"') + ': ' + chalk.yellow('"gh-pages -d build"'));
+      console.log('      ' + chalk.yellow('"gh-pages-deploy"') + ': ' + chalk.yellow('"gh-pages -d production_build"'));
       console.log('    }');
       console.log();
       console.log('Then run:');
@@ -180,7 +180,7 @@ function build(previousSizeMap) {
       console.log('The project was built assuming it is hosted at ' + chalk.green(publicPath) + '.');
       console.log('You can control this with the ' + chalk.green('homepage') + ' field in your '  + chalk.cyan('package.json') + '.');
       console.log();
-      console.log('The ' + chalk.cyan('build') + ' folder is ready to be deployed.');
+      console.log('The ' + chalk.cyan('production_build') + ' folder is ready to be deployed.');
       console.log();
     } else {
       // no homepage or "homepage": "http://mywebsite.com"
@@ -197,11 +197,11 @@ function build(previousSizeMap) {
         console.log('  ' + chalk.green('"homepage"') + chalk.cyan(': ') + chalk.green('"http://myname.github.io/myapp"') + chalk.cyan(','));
         console.log();
       }
-      console.log('The ' + chalk.cyan('build') + ' folder is ready to be deployed.');
+      console.log('The ' + chalk.cyan('production_build') + ' folder is ready to be deployed.');
       console.log('You may also serve it locally with a static server:')
       console.log();
       console.log('  ' + chalk.cyan('npm') +  ' install -g pushstate-server');
-      console.log('  ' + chalk.cyan('pushstate-server') + ' build');
+      console.log('  ' + chalk.cyan('pushstate-server') + ' production_build');
       console.log('  ' + chalk.cyan(openCommand) + ' http://localhost:9000');
       console.log();
     }

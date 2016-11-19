@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './assets/Counter.css';
 
 export default class Counter extends Component {
   constructor(props) {
     super(props);
-    this.state = { counter: 0 };
+    this.state = {
+      counter: 0
+    };
   }
 
   componentDidMount() {
@@ -22,8 +23,15 @@ export default class Counter extends Component {
   }
 
   render() {
+    const intro = {
+      fontSize: 'large'
+    }
+
     return (
-      <h4>Counter: {this.state.counter}</h4>
-   );
+      <div className="Counter">
+        <h4>Counter: {this.state.counter}</h4>
+        <p style={intro}>To modify this component, edit <code>src/Components/Counter/Counter.js</code> and save to reload.</p>
+      </div>
+    );
   }
 }
