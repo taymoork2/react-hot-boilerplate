@@ -9,7 +9,6 @@ var webpackHotMiddleware = require('webpack-hot-middleware');
 var webpackConfig = require('./webpack.development.config');
 var webpackBundler = webpack(webpackConfig);
 
-app.use(express.static(__dirname + '/public'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 app.use(webpackHotMiddleware(webpackBundler));
 app.use(webpackDevMiddleware(webpackBundler, {
