@@ -33,38 +33,16 @@ app.listen(3000, function (err) {
     return console.error(err);
   }
 
-  console.log('Listening at http://localhost:3000/');
-
-  // bs.init(null, {
-  //   server: {
-  //     baseDir: 'dist',
-  //     middleware: [
-  //       webpackDevMiddleware(webpackBundler, {
-  //         publicPath: webpackConfig.output.publicPath,
-  //         noInfo: false,
-  //         stats: {
-  //           colors: true,
-  //           version: false,
-  //           timings: false,
-  //           chunks: false,
-  //           chunkModules: false
-  //         },
-  //         historyApiFallback: false
-  //       }),
-  //       webpackHotMiddleware(webpackBundler)
-  //     ],
-  //   },
-  //   files: [
-  //     'public/index.html',
-  //     'src/**/*.css'
-  //   ],
-  //   reloadOnRestart: true,
-  //   injectChanges: true,
-  //   notify: true,
-  //   tunnel: true, // LocalTunnel url
-  //   logLevel: 'debug',
-  //   logSnippet: 'false',
-  //   open: false, // Change to 'local' to open on start
-  //   xip: true
-  // });
+  bs.init(null, {
+    proxy: 'localhost:3000',
+    files: 'public/index.html',
+    reloadOnRestart: true,
+    injectChanges: true,
+    notify: true,
+    tunnel: true, // LocalTunnel url, change 'true' to whatever subdomain you like (if subdomain is available)
+    logLevel: 'debug',
+    logSnippet: 'false',
+    open: false, // Change to 'local' to open on start
+    xip: true
+  });
 });
