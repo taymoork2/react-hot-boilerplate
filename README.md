@@ -1,7 +1,7 @@
 react-hot-boilerplate
 =====================
 
-#### This fork is a semi-opiniated React setup with a option to build for Production (React + HMR(3) + Webpack + Babel)
+#### This fork is a semi-opiniated React setup with a option to build for Production (React + React-Router + HMR(3) + Webpack + Babel)
 
 This fork combines the minimalism of Gaearon's react-hot-boilerplate/next and the many features of Facebook Incubator's Create-React-App setup into a simple react starter project
 
@@ -40,6 +40,7 @@ You may want to change the host in `server.js` and `webpack.config.js` from `loc
 ### Dependencies
 
 * React
+* React-Router (v3)
 * Webpack
 * Browser-Sync
 * Files from Create-React-App/React-Scripts
