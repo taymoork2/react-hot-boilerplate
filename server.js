@@ -40,7 +40,7 @@ app.listen(3000, function (err) {
     injectChanges: true,
     notify: true,
     tunnel: true, // LocalTunnel url, change 'true' to whatever subdomain you like (if subdomain is available)
-    open: false, // Change to 'local' to open on start
+    open: 'local', // Change to 'false' to disable open on start
     xip: true
   });
 });

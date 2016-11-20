@@ -6,9 +6,10 @@ import Counter from './Components/Counter/Counter';
 import Layout from './Components/Layout/Layout';
 
 export default class Routes extends Component { // React Router v3
+  // Replace browserHistory with hashHistory (for static hosting sites like github pages or surge)
   render() {
     return (
-      <Router history={browserHistory}> {/* Replace browserHistory with hashHistory (for static hosting sites like github pages or surge) */}
+      <Router history={browserHistory}>
         <Route path="/" component={Layout}>
           <IndexRoute component={App} />
           <Route path="counter" component={Counter}/>
