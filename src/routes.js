@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { Router, Route, Link, IndexRoute, browserHistory, hashHistory } from 'react-router'; // React Router v3
+import { history } from './Store/store';
+import { Router, Route, Link, IndexRoute, Redirect } from 'react-router'; // React Router v3
 // import { BrowserRouter as Router, Match, Link } from 'react-router'; // React Router v4
-import App from './Components/App/App';
-import Counter from './Components/Counter/Counter';
-import Layout from './Components/Layout/Layout';
+import { Layout } from './Containers';
+import { App, Counter } from './Components';
 
 export default class Routes extends Component { // React Router v3
-  // Replace browserHistory with hashHistory (for static hosting sites like github pages or surge)
   render() {
     return (
-      <Router history={browserHistory}>
+      <Router history={history}>
         <Route path="/" component={Layout}>
           <IndexRoute component={App} />
           <Route path="counter" component={Counter}/>
+          <Redirect path="*" to="/" />
         </Route>
       </Router>
     );
