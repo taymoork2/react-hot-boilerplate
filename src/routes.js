@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, IndexRoute, browserHistory, hashHistory } from 'react-router'; // React Router v3
 // import { BrowserRouter as Router, Match, Link } from 'react-router'; // React Router v4
-import { Layout } from './Container';
+import { Layout } from './Containers';
 import { App, Counter } from './Components';
 
 export default class Routes extends Component { // React Router v3
