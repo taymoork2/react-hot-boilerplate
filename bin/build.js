@@ -173,7 +173,7 @@ function build(previousSizeMap) {
       console.log();
       console.log('Then run:');
       console.log();
-      console.log('  ' + chalk.cyan('npm') +  ' run deploy');
+      console.log('  ' + chalk.cyan('npm') +  ' run gh-pages-deploy');
       console.log();
     } else if (publicPath !== '/') {
       // "homepage": "http://mywebsite.com/project"
