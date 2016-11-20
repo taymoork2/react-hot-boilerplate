@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var app = express();
 var pe = require('pretty-error').start();
-var bs = require('browser-sync').create();
+var browserSync = require('browser-sync').create();
 var webpack = require('webpack');
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
@@ -33,7 +33,7 @@ app.listen(3000, function (err) {
     return console.error(err);
   }
 
-  bs.init(null, {
+  browserSync.init(null, {
     proxy: 'localhost:3000',
     files: 'public/index.html',
     reloadOnRestart: true,

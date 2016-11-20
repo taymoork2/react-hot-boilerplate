@@ -161,18 +161,6 @@ function build(previousSizeMap) {
       console.log('The ' + chalk.cyan('production_build') + ' folder is ready to be deployed.');
       console.log('To publish it at ' + chalk.green(homepagePath) + ', run:');
       console.log();
-      console.log('  ' + chalk.cyan('npm') +  ' install --save-dev gh-pages');
-      console.log();
-      console.log('Add the following script in your ' + chalk.cyan('package.json') + '.');
-      console.log();
-      console.log('    ' + chalk.dim('// ...'));
-      console.log('    ' + chalk.yellow('"scripts"') + ': {');
-      console.log('      ' + chalk.dim('// ...'));
-      console.log('      ' + chalk.yellow('"gh-pages-deploy"') + ': ' + chalk.yellow('"gh-pages -d production_build"'));
-      console.log('    }');
-      console.log();
-      console.log('Then run:');
-      console.log();
       console.log('  ' + chalk.cyan('npm') +  ' run gh-pages-deploy');
       console.log();
     } else if (publicPath !== '/') {

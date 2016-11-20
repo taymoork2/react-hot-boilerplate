@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router'; // React Router v3
+import { Router, Route, Link, IndexRoute, browserHistory, hashHistory } from 'react-router'; // React Router v3
 // import { BrowserRouter as Router, Match, Link } from 'react-router'; // React Router v4
 import App from './Components/App/App';
 import Counter from './Components/Counter/Counter';
@@ -8,7 +8,7 @@ import Layout from './Components/Layout/Layout';
 export default class Routes extends Component { // React Router v3
   render() {
     return (
-      <Router history={browserHistory}>
+      <Router history={browserHistory}> {/* Replace browserHistory with hashHistory (for static hosting sites like github pages or surge) */}
         <Route path="/" component={Layout}>
           <IndexRoute component={App} />
           <Route path="counter" component={Counter}/>
