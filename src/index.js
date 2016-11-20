@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import Routes from './Components/Routes';
+import Routes from './routes';
 import './index.css';
 
 ReactDOM.render((
@@ -11,10 +11,10 @@ ReactDOM.render((
 ), document.getElementById('root'));
 
 if (module.hot) {
-  module.hot.accept('./Components/Routes', () => {
+  module.hot.accept('./routes', () => {
     // If you use Webpack 2 in ES modules mode, you can
     // use <Routes /> here rather than require() a <HotRoutes />.
-    const HotRoutes = require('./Components/Routes').default;
+    const HotRoutes = require('./routes').default;
     ReactDOM.render((
       <AppContainer>
         <HotRoutes />

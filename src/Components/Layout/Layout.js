@@ -9,7 +9,7 @@ export default class Layout extends Component {
       <div className="App">
         <header>
           <img src={logo} className="logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <h1>Welcome to React</h1>
           <Navbar />
         </header>
         <div className="main">
