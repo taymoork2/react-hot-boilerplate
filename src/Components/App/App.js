@@ -12,7 +12,7 @@ export default class App extends Component {
           Modify Routes at <code>src/Components/Routes.js</code> and save to reload.
         </p>
         <p className="App-intro">
-          Modify the Layout at <code>src/Components/Layout/Layout.js</code> and save to reload.
+          Modify the Layout at <code>src/Container/Layout/Layout.js</code> and save to reload.
         </p>
       </div>
     );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Navbar from '../Navbar/Navbar';
+import { Navbar } from '../../Components';
 import logo from './assets/logo.svg';
-import './assets/Layout.css'
+import './assets/Layout.css';
 
 export default class Layout extends Component {
   render() {
