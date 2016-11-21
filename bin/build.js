@@ -94,7 +94,7 @@ function printFileSizes(stats, previousSizeMap) {
       var previousSize = previousSizeMap[removeFileNameHash(asset.name)];
       var difference = getDifferenceLabel(size, previousSize);
       return {
-        folder: path.join('build', path.dirname(asset.name)),
+        folder: path.join('dist', path.dirname(asset.name)),
         name: path.basename(asset.name),
         size: size,
         sizeLabel: filesize(size) + (difference ? ' (' + difference + ')' : '')
@@ -158,7 +158,7 @@ function build(previousSizeMap) {
       console.log('The project was built assuming it is hosted at ' + chalk.green(publicPath) + '.');
       console.log('You can control this with the ' + chalk.green('homepage') + ' field in your '  + chalk.cyan('package.json') + '.');
       console.log();
-      console.log('The ' + chalk.cyan('production_build') + ' folder is ready to be deployed.');
+      console.log('The ' + chalk.cyan('dist') + ' folder is ready to be deployed.');
       console.log('To publish it at ' + chalk.green(homepagePath) + ', run:');
       console.log();
       console.log('  ' + chalk.cyan('npm') +  ' run gh-pages-deploy');
@@ -168,7 +168,7 @@ function build(previousSizeMap) {
       console.log('The project was built assuming it is hosted at ' + chalk.green(publicPath) + '.');
       console.log('You can control this with the ' + chalk.green('homepage') + ' field in your '  + chalk.cyan('package.json') + '.');
       console.log();
-      console.log('The ' + chalk.cyan('production_build') + ' folder is ready to be deployed.');
+      console.log('The ' + chalk.cyan('dist') + ' folder is ready to be deployed.');
       console.log();
     } else {
       // no homepage or "homepage": "http://mywebsite.com"
@@ -185,11 +185,11 @@ function build(previousSizeMap) {
         console.log('  ' + chalk.green('"homepage"') + chalk.cyan(': ') + chalk.green('"http://myname.github.io/myapp"') + chalk.cyan(','));
         console.log();
       }
-      console.log('The ' + chalk.cyan('production_build') + ' folder is ready to be deployed.');
+      console.log('The ' + chalk.cyan('dist') + ' folder is ready to be deployed.');
       console.log('You may also serve it locally with a static server:')
       console.log();
       console.log('  ' + chalk.cyan('npm') +  ' install -g pushstate-server');
-      console.log('  ' + chalk.cyan('pushstate-server') + ' production_build');
+      console.log('  ' + chalk.cyan('pushstate-server') + ' dist');
       console.log('  ' + chalk.cyan(openCommand) + ' http://localhost:9000');
       console.log();
     }

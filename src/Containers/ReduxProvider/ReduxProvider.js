@@ -1,26 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Router } from 'react-router';
 import { Provider } from 'react-redux';
-import { store } from '../../Store/store';
 import Routes from '../../routes';
 import { ReduxDevTools as DevTools } from '../../Components';
 
 export default class ReduxProvider extends Component {
   render() {
-    if (module.hot) {
+    const { store, history } = this.props;
+
+    if (process.env.NODE_ENV === 'production') {
       return (
         <Provider store={store}>
-          <div>
-            <Routes />
-            <DevTools />
-          </div>
+          <Routes history={history} />
         </Provider>
-      )
+      );
     } else {
       return (
         <Provider store={store}>
-          <Routes />
+          <div>
+            <Routes history={history} />
+            <DevTools />
+          </div>
         </Provider>
-      )
+      );
     }
   }
 }
+
+ReduxProvider.propTypes = {
+  store: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
+};

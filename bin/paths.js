@@ -37,7 +37,7 @@ var nodePaths = (process.env.NODE_PATH || '')
 
 // config after eject: we're in ./bin/
 module.exports = {
-  appBuild: resolveApp('production_build'),
+  appBuild: resolveApp('dist'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.js'),
@@ -56,7 +56,7 @@ function resolveOwn(relativePath) {
 
 // config before eject: we're in ./node_modules/react-scripts/bin/
 module.exports = {
-  appBuild: resolveApp('production_build'),
+  appBuild: resolveApp('dist'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.js'),

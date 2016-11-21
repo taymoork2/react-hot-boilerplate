@@ -40,7 +40,7 @@ npm run build
 * Change_ `browserHistory` _to_ `hashHistory` _in_ `src/routes.js`
 * To see what this would the production build will look like locally
   * Install pushstate * `npm install -g pushstate-server`
-  * `pushstate-server production_build`
+  * `pushstate-server dist`
   * Open `http://localhost:9000`
 
 ### Using `0.0.0.0` as Host
