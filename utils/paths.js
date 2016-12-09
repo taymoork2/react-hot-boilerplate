@@ -1,4 +1,3 @@
-// @remove-on-eject-begin
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -7,7 +6,6 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  */
-// @remove-on-eject-end
 
 var path = require('path');
 var fs = require('fs');
@@ -29,13 +27,12 @@ function resolveApp(relativePath) {
 // We will export `nodePaths` as an array of absolute paths.
 // It will then be used by Webpack configs.
 // Jest doesn’t need this because it already handles `NODE_PATH` out of the box.
-
 var nodePaths = (process.env.NODE_PATH || '')
   .split(process.platform === 'win32' ? ';' : ':')
   .filter(Boolean)
   .map(resolveApp);
 
-// config after eject: we're in ./bin/
+// config after eject: we're in ./utils/
 module.exports = {
   appBuild: resolveApp('dist'),
   appPublic: resolveApp('public'),
@@ -43,13 +40,13 @@ module.exports = {
   appIndexJs: resolveApp('src/index.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
+  yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
   ownNodeModules: resolveApp('node_modules'),
   nodePaths: nodePaths
 };
 
-// @remove-on-eject-begin
 function resolveOwn(relativePath) {
   return path.resolve(__dirname, relativePath);
 }
@@ -62,11 +59,10 @@ module.exports = {
   appIndexJs: resolveApp('src/index.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
+  yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveApp('src/setupTests.js'),
   appNodeModules: resolveApp('node_modules'),
   // this is empty with npm3 but node resolution searches higher anyway:
   ownNodeModules: resolveOwn('../node_modules'),
   nodePaths: nodePaths
 };
-// @remove-on-eject-end
-
