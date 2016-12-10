@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 export default class Counter extends Component {
   componentDidMount() {
-    this.interval = setTimeout(this.props.onIncrement, 1000)
+    this.interval = setTimeout(this.props.onIncrement, 1000);
   }
 
   componentWillUnmount() {
@@ -24,5 +24,5 @@ export default class Counter extends Component {
 Counter.PropTypes = {
   value: PropTypes.number.isRequired,
   onIncrement: PropTypes.func.isRequired,
-  onDecrement: PropTypes.func.isRequired
-}
+  onDecrement: PropTypes.func.isRequired,
+};
