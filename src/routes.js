@@ -1,30 +1,24 @@
-import React, { Component } from 'react';
-import { Router, Route, Link, IndexRoute, browserHistory, hashHistory } from 'react-router'; // React Router v3
-// import { BrowserRouter as Router, Match, Link } from 'react-router'; // React Router v4
+import React from 'react';
+import { BrowserRouter, HashRouter } from 'react-router'; // eslint-disable-line no-unused-vars
 import { Layout } from './Containers';
 import { App, Counter } from './Components';
 
-export default class Routes extends Component { // React Router v3
-  // Replace browserHistory with hashHistory (for static hosting sites like github pages or surge)
-  render() {
-    return (
-      <Router history={browserHistory}>
-        <Route path="/" component={Layout}>
-          <IndexRoute component={App} />
-          <Route path="counter" component={Counter}/>
-        </Route>
-      </Router>
-    );
-  }
+export default function Routes() {
+  return (
+    <BrowserRouter>
+      <Layout
+        routes={[
+          {
+            pattern: '/',
+            exactly: true,
+            component: App,
+          },
+          {
+            pattern: '/counter',
+            component: Counter,
+          },
+        ]}
+      />
+    </BrowserRouter>
+  );
 }
-
-/* export default class Routes extends Component { // React Router v4
-  render() {
-    return (
-      <Router>
-        <Match exactly pattern="/" component={App} />
-        <Match pattern="/counter" component={Counter} />
-      </Router>
-    );
-  }
-} */
