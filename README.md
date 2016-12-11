@@ -1,7 +1,7 @@
 React Hot Boilerplate
 =====================
 
-#### This fork is a semi-opiniated React setup with a option to build for Production (React + React-Router + HMR(3) + Webpack + Babel)
+#### This fork is a semi-opiniated React setup with a option to build for Production (React + React-Router v4 + Redux + HMR(3) + Webpack + Babel)
 
 This fork combines the minimalism of Gaearon's react-hot-boilerplate/next and the many features of Facebook Incubator's Create-React-App into a simple react starter project with react-router for routing
 
@@ -37,9 +37,9 @@ npm run build
 ### Static Hosting _(Github Pages or Surge)_
 
 * Add the homepage field `"homepage": "username.github.io/{repo}"` to `package.json`
-* Change_ `browserHistory` _to_ `hashHistory` _in_ `src/routes.js`
+* Change `BrowserRouter` to `HashRouter` in `src/routes.js`
 * To see what this would the production build will look like locally
-  * Install pushstate * `npm install -g pushstate-server`
+  * Install pushstate --- `npm install -g pushstate-server`
   * `pushstate-server dist`
   * Open `http://localhost:9000`
 
@@ -51,8 +51,9 @@ You may want to change the host in `server.js` and `webpack.config.js` from `loc
 ### Dependencies
 
 * React
-* React-Router (v3)
-* Webpack
+* React-Router (v4)
+* Webpack _*(not v2)*_
+* React Helmet
 * Browser-Sync
 * Files from [Create-React-App/React-Scripts](https://github.com/facebookincubator/create-react-app)
   * React-Scripts Polyfills
@@ -75,7 +76,7 @@ You may want to change the host in `server.js` and `webpack.config.js` from `loc
 
 * A majority of React-Hot-Boilerplate/next is still here
 * src folder contents were replaced with Create-React-App's src folder and then organized
-* Webpack is a combintation of both React-Hot-Boilerplate and Create-React-App
+* Webpack is a combination of both React-Hot-Boilerplate and Create-React-App
 * Thanks to Create-React-App, css changes are also done over Hot-Module
 * App.js file was tweaked to be "hot"
 * config contents were taken from React-Scripts and tweaked for new folder structure
@@ -87,5 +88,3 @@ You may want to change the host in `server.js` and `webpack.config.js` from `loc
 
 * Add test suite
   * _Probably Jest+Enzyme_
-* Integrate Redux
-  * _Checkout the Redux branch_

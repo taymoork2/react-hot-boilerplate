@@ -1,24 +1,59 @@
-import React from 'react';
-import { BrowserRouter, HashRouter } from 'react-router'; // eslint-disable-line no-unused-vars
+import React, { Component, PropTypes } from 'react';
+import { BrowserRouter, HashRouter, Match, Miss, Redirect } from 'react-router'; // eslint-disable-line no-unused-vars
+import { RoutesProvider, MatchWithRoutes } from 'react-router-addons-routes';
+import MemoryRouter from 'react-router-addons-controlled/ControlledMemoryRouter'; // eslint-disable-line no-unused-vars
+import Helmet from 'react-helmet';
 import { Layout } from './Containers';
 import { App, Counter } from './Components';
 
-export default function Routes() {
-  return (
-    <BrowserRouter>
-      <Layout
-        routes={[
-          {
-            pattern: '/',
-            exactly: true,
-            component: App,
-          },
-          {
-            pattern: '/counter',
-            component: Counter,
-          },
-        ]}
-      />
-    </BrowserRouter>
-  );
+class Routes extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      routes: [
+        {
+          pattern: '/',
+          exactly: true,
+          component: App,
+          title: 'App',
+        },
+        {
+          pattern: '/counter',
+          component: Counter,
+          title: 'Counter',
+        },
+      ],
+    };
+  }
+
+  render() {
+    const routes = this.state.routes;
+
+    return (
+      <BrowserRouter>
+        <RoutesProvider routes={routes}>
+          <Layout>
+            {routes.map((route, index) => <Route key={index} route={route} />)}
+            <Miss component={() => <Redirect to="/" />} />
+          </Layout>
+        </RoutesProvider>
+      </BrowserRouter>
+    );
+  }
 }
+
+const Route = ({ route }) => (
+  <span>
+    <Match {...route} render={() => <Helmet title={route.title} />} />
+    <MatchWithRoutes {...route} />
+  </span>
+);
+
+// Typechecking (Proptypes) is required for all Comoponents that have props
+// It is disabled on this file because object is the correct type
+// ESlint format says otherwise (but even they say it's not a hard rule to follow)
+Route.propTypes = {
+  route: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+};
+
+export default Routes;

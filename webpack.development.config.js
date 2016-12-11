@@ -12,8 +12,9 @@ var fs = require('fs');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var BowerWebpackPlugin = require("bower-webpack-plugin");
+var BowerWebpackPlugin = require('bower-webpack-plugin');
 var NpmInstallPlugin = require('npm-install-webpack-plugin');
+var FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
@@ -75,6 +76,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
+        exclude: /node_modules/,
         loader: 'babel',
         query: {
           cacheDirectory: true
@@ -128,6 +130,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin(),
     new BowerWebpackPlugin(),
+    new FlowStatusWebpackPlugin(),
     new WatchMissingNodeModulesPlugin(paths.appNodeModules)
   ],
   node: {

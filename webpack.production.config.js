@@ -99,6 +99,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
+        exclude: /node_modules/,
         loader: 'babel'
       },
       {
