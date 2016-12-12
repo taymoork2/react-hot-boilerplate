@@ -44,8 +44,9 @@ jspm_packages
 # Output of 'npm pack'
 *.tgz
 
-# Yarn Integrity file
+# Yarn files
 .yarn-integrity
+.yarnclean
 
 # Misc.
 .DS_Store
