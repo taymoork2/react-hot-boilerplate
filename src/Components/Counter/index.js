@@ -9,7 +9,7 @@ export default class Counter extends Component {
   }
 
   // Copied over from React-Hot-Boilerplate
-  // So this.bind will stay as an example of ES% and ES6 playing nicely
+  // So this.bind will stay as an example of ES5 and ES6 playing nicely
   componentDidMount() {
     this.interval = setInterval(this.tick.bind(this), 1000);
   }
@@ -52,7 +52,7 @@ export default class Counter extends Component {
         <p style={{ fontSize: 'large' }}>
           To modify this component, edit
           <code> src/Components/Counter/index.js </code>
-          and save to reload.
+          and save to see the changes
         </p>
       </div>
     );
