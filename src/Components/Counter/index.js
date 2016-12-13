@@ -51,7 +51,7 @@ export default class Counter extends Component {
         <button onClick={this.reset} style={button}>RESET</button>
         <p style={{ fontSize: 'large' }}>
           To modify this component, edit
-          <code> src/Components/Counter/Counter.js </code>
+          <code> src/Components/Counter/index.js </code>
           and save to reload.
         </p>
       </div>

@@ -7,17 +7,17 @@ export default function App() {
     <div className="GettingStarted">
       <p className="App-intro">
         To get started, and to edit this component go to
-        <code> src/Components/App/App.js </code>
+        <code> src/Components/App/index.js </code>
+        and save to reload.
+      </p>
+      <p className="App-intro">
+        Modify the Layout at
+        <code> src/Containers/Layout/index.js </code>
         and save to reload.
       </p>
       <p className="App-intro">
         Modify Routes at
         <code> src/Components/Routes.js </code>
-        and save to reload.
-      </p>
-      <p className="App-intro">
-        Modify the Layout at
-        <code> src/Containers/Layout/Layout.js </code>
         and save to reload.
       </p>
     </div>

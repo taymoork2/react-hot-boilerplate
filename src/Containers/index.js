@@ -1,1 +1,2 @@
-export Layout from './Layout/Layout.js';
+// Add all container components here for easier importing
+export Layout from './Layout';
