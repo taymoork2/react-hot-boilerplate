@@ -99,6 +99,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
+        exclude: /node_modules/,
         loader: 'babel'
       },
       {
@@ -176,9 +177,9 @@ module.exports = {
     new ManifestPlugin({
       fileName: 'webpack-manifest.json'
     }),
-    new SubresourceIntegrityPlugin({
+    /*new SubresourceIntegrityPlugin({ // I'm getting integrity errors on my end
       hashFuncNames: ['sha256', 'sha384']
-    })
+    })*/
   ],
   node: {
     fs: 'empty',
