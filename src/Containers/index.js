@@ -1,2 +1,2 @@
-export ReduxProvider from './ReduxProvider/ReduxProvider';
-export Layout from './Layout/Layout';
+export ReduxProvider from './ReduxProvider';
+export Layout from './Layout';

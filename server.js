@@ -1,3 +1,4 @@
+/* eslint-disable */
 var express = require('express');
 var path = require('path');
 var app = express();
@@ -40,7 +41,7 @@ app.listen(3000, function (err) {
     injectChanges: true,
     notify: true,
     tunnel: true, // LocalTunnel url, change 'true' to whatever subdomain you like (if subdomain is available)
-    open: 'local', // Change to 'false' to disable open on start
+    open: false, // Change to 'false' to disable open on start
     xip: true
   });
 });

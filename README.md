@@ -43,7 +43,7 @@ npm run build
 ### Using `0.0.0.0` as Host
 
 You may want to change the host in `server.js` and `webpack.config.js` from `localhost` to `0.0.0.0` to allow access from same WiFi network. This is not enabled by default because it is reported to cause problems on Windows. This may also be useful if you're using a VM.
-> _You can also change the browserysnc tunnel value in _`server.js`_ from _`true`_ to whatever string you would like. You can then access the localtunnel url on other devices_
+> _You can also change the browserysnc tunnel value in_ `server.js` _from_ `true` _to whatever string you would like. You can then access the localtunnel url on other devices_
 
 ### Dependencies
 
@@ -60,6 +60,7 @@ You may want to change the host in `server.js` and `webpack.config.js` from `loc
 * [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
 * [babel-loader](https://github.com/babel/babel-loader)
 * [react-hot-loader](https://github.com/gaearon/react-hot-loader)
+* [Single Page Apps for GitHub Pages](https://github.com/rafrex/spa-github-pages)
 
 ### Resources
 

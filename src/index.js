@@ -13,10 +13,10 @@ ReactDOM.render((
 ), document.getElementById('root'));
 
 if (module.hot) {
-  module.hot.accept('./Containers/ReduxProvider/ReduxProvider', () => {
+  module.hot.accept('./Containers/ReduxProvider', () => {
     // If you use Webpack 2 in ES modules mode, you can
     // use <Routes /> here rather than require() a <HotRoutes />.
-    const HotProvider = require('./Containers/ReduxProvider/ReduxProvider').default; // eslint-disable-line global-require
+    const HotProvider = require('./Containers/ReduxProvider').default; // eslint-disable-line global-require
     ReactDOM.render((
       <AppContainer>
         <HotProvider />

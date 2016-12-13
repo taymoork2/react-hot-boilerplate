@@ -2,7 +2,7 @@ import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
 // import { routerReducer } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import * as reducers from '../Reducers';
-// import { ReduxDevTools as DevTools } from '../Components';
+import { ReduxDevTools as DevTools } from '../Components';
 
 const reducer = combineReducers({
   ...reducers,
@@ -16,7 +16,7 @@ export default function configStore(initalstate) {
       initalstate,
       compose(
         applyMiddleware(thunk),
-        // DevTools.instrument(),
+        DevTools.instrument(),
       ),
     );
   }

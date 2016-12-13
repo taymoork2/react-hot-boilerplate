@@ -1,3 +1,4 @@
-export App from './App/App';
-export Counter from './Counter/Counter';
-export Navbar from './Navbar/Navbar';
+export App from './App';
+export Counter from './Counter';
+export Navbar from './Navbar';
+export ReduxDevTools from './ReduxDevTools';
