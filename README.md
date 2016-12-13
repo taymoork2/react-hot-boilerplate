@@ -37,11 +37,8 @@ npm run build
 ### Static Hosting _(Github Pages or Surge)_
 
 * Add the homepage field `"homepage": "username.github.io/{repo}"` to `package.json`
-* Change `BrowserRouter` to `HashRouter` in `src/routes.js`
-* To see what this would the production build will look like locally
-  * Install pushstate --- `npm install -g pushstate-server`
-  * `pushstate-server dist`
-  * Open `http://localhost:9000`
+* Doublecheck `public/404.html` - `pathPrefix` value to see if it fits your setup
+  * It is currently set to `TRUE` for a Github Pages setup **_even with a custom domain_**
 
 ### Using `0.0.0.0` as Host
 
@@ -53,8 +50,9 @@ You may want to change the host in `server.js` and `webpack.config.js` from `loc
 * React
 * React-Router (v4)
 * Webpack _*(not v2)*_
-* React Helmet
+* React-Helmet
 * Browser-Sync
+* Flow-Type support out-of-the-box
 * Files from [Create-React-App/React-Scripts](https://github.com/facebookincubator/create-react-app)
   * React-Scripts Polyfills
 * [npm-install-webpack-plugin](https://github.com/ericclemmons/npm-install-webpack-plugin) for automatic installation of missing npm packages

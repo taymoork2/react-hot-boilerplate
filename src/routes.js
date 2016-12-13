@@ -12,13 +12,13 @@ class Routes extends Component {
     this.state = {
       routes: [
         {
-          pattern: '/',
+          pattern: `${process.env.PUBLIC_URL}/`,
           exactly: true,
           component: App,
           title: 'App',
         },
         {
-          pattern: '/counter',
+          pattern: `${process.env.PUBLIC_URL}/Counter`,
           component: Counter,
           title: 'Counter',
         },
