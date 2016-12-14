@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import { browserHistory, hashHistory } from 'react-router'; // eslint-disable-line no-unused-vars
-// import { syncHistoryWithStore } from 'react-router-redux';
+import { syncHistoryWithStore } from 'connected-react-router';
 import { ReduxProvider as Provider } from './Containers';
+import { store, history } from './Stores';
 import './index.css';
+
+syncHistoryWithStore(history, store);
 
 ReactDOM.render((
   <AppContainer>
-    <Provider />
+    <Provider store={store} history={history} />
   </AppContainer>
 ), document.getElementById('root'));
 
@@ -19,7 +21,7 @@ if (module.hot) {
     const HotProvider = require('./Containers/ReduxProvider').default; // eslint-disable-line global-require
     ReactDOM.render((
       <AppContainer>
-        <HotProvider />
+        <HotProvider store={store} history={history} />
       </AppContainer>
     ), document.getElementById('root'));
   });

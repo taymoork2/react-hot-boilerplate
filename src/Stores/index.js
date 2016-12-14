@@ -1,21 +1,26 @@
 import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
-// import { routerReducer } from 'react-router-redux';
+import { routerReducer, routerMiddleware } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
 import thunk from 'redux-thunk';
 import * as reducers from '../Reducers';
 import { ReduxDevTools as DevTools } from '../Components';
 
+export const history = createBrowserHistory();
+
 const reducer = combineReducers({
   ...reducers,
-  // routing: routerReducer,
+  routing: routerReducer,
 });
 
-export default function configStore(initalstate) {
+export const store = () => {
   if (process.env.NODE_ENV !== 'production') {
     return createStore(
       reducer,
-      initalstate,
       compose(
-        applyMiddleware(thunk),
+        applyMiddleware(
+          thunk,
+          routerMiddleware(history),
+        ),
         DevTools.instrument(),
       ),
     );
@@ -23,7 +28,11 @@ export default function configStore(initalstate) {
 
   return createStore(
     reducer,
-    initalstate,
-    compose(applyMiddleware(thunk)),
+    compose(
+      applyMiddleware(
+        thunk,
+        routerMiddleware(history),
+      ),
+    ),
   );
-}
+};
